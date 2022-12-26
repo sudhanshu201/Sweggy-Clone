@@ -1,0 +1,469 @@
+/* firstly using universal selector(*) */
+*{
+    margin: 0;       /*everything should start from*/
+    padding: 0;        /*0 padding*/
+    font-family: 'Mulish', sans-serif;   /*imported, in case that google(mulish)font unable to load, by default it uses*/
+}
+
+/* nav-bar section */
+.navbar{
+    position: fixed;        /*used to fix nav-bar*/
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    box-shadow: 0 15px 40px -20px rgb(40 44 63 / 15%);  /*top-right-bottom-left* and then we color of the shadow and 15% is opecity value*/
+    height: 80px;
+    padding: 20px;
+    z-index: 1000;   /*z-index is used for overlaping things or stacking things*/
+}
+
+.global-nav .nav{
+    max-width: 1200px;
+    min-width: 1200px;
+    position: relative;   
+    margin: 0 auto;
+    background: #fff;
+    display: flex;
+    height: 80px;
+    justify-content: space-between;
+}
+
+.nav .left{
+    display: flex;      /*logo and left bar in flex now*/
+    align-items: center;   /*when we have single line,and align into center wrt y-axis.*/
+    
+}
+
+.nav .left .logo{
+    display: block;
+    height: 49px;
+    margin-right: 16px;
+}
+
+/*.nav .left .logo:hover{  transform: scale(1.5); } /*to give some sort of transition*/
+                 
+
+.nav .left .logo{
+    animation: rotation 4s infinite linear;
+}
+
+@keyframes rotation{
+    from {
+        transform:  rotate(0deg);
+    }
+    to{
+        transform: rotate(359deg);
+    }
+}
+
+
+.nav .left .location-div{
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+    max-width: 300px;
+    height: 30px;
+    padding-right: 11px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/*inside the location-div we have diff diff spans*/
+
+.left .location-div .other{
+    border-bottom: 2px solid #3d4152;
+    font-weight: 700;
+    color: #3d4152;
+    padding-bottom: 2px;
+}
+
+.left .location-div .other:hover{
+    color: #fc8019;
+    border-bottom: 2px solid #fc8019;
+}
+
+.left .location-div .location{
+    font-weight: 300;
+    margin-left: 5px;
+    padding-left: 5px;
+    color: #686b78;
+}
+
+.left .location-div .arrow-down{
+    margin-left: 5px;
+    color: #fc8019;
+}
+
+/*We are done with the left part. Now let's come to the right part*/
+
+
+.right{
+    position: relative;
+}
+/*using flex-box conver all the ul items in flex*/
+.right .items{
+    display: flex;
+}
+
+/*li items*/
+.right .items li{
+    list-style-type: none;   /*removing dots*/
+    font-weight: 500;
+    font-size: 16px;
+    color: #3d4152;
+    margin: 36px;
+}
+
+/*now come to the nav items particulary*/
+/*I have a svg-tag and search element*/
+
+.right .items .nav-items{
+    display: flex;
+    align-items: center;
+    padding-left: 28px;
+    height: 80px;
+    cursor: pointer;
+}
+
+/*removing all item's underline and keeping them align in center*/
+.right .items .nav-item a{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #3d4152;
+    font-size: 16px;
+}
+
+.right .items a:hover{
+      transform: scale(1.5);  /*hovering on a tag and span tag*/
+     }
+
+     .nav-item span{
+        padding-left: 11px;
+     }
+
+.right .items li:last-child a svg{
+    color: rgb(7, 12, 1);
+}
+
+/* Main Section Style */
+.content-section{
+    max-width: 1200px;
+    position: relative;
+    margin: 0 auto;
+    padding-top: 42px;
+    top: 80px;
+    background: #fff;
+    left: 10px;
+}
+
+.container .item-bar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ddd;      /*giving border items*/
+    padding-bottom: 8px;
+}
+
+.container .item-bar .number{
+    font-weight: 700;
+    font-size: 28px;
+    color: #282c3f;
+
+}
+
+.container .item-bar .filters{
+    display: flex;
+    align-items: center;
+    font-weight: 300;
+    color: #687b78;
+    font-size: 16px;
+   cursor: pointer;
+}
+
+.filters div{
+    margin-left: 35px;
+    border-bottom: 1px solid black;
+}
+
+.filters .div:hover::after{
+    color: #3d4152;
+    position: absolute;
+    content: '';
+    height: 1px;
+    top: 31px;
+    background-color: #282c3f;
+}
+
+/*GRID:- while using row and column*/
+
+/*to create rows in grid we use this template -  grid-template-rows:50% 50%(width of each row)
+/*for columns grid-template-columns: 25% 25% 25% 25% or repeat(4,25%)*/
+
+.restaurant-list{
+    display: grid;      /*creating grid*/
+    grid-template-columns: repeat(4,25%);
+    margin-bottom: 85px;
+
+    padding-top: 39px;
+    margin-top: 55px;
+    margin: 0 auto;                 /*same margin for both side, auto helps us to bring in center in x-axis*/
+
+}
+
+.restaurant-list .place-link{
+    text-decoration: none;          /*remove underlines*/
+    background-color: #fff;
+    color: inherit;                 /*color getting from it's parent elements*/
+
+}
+
+.restaurant-list .list-item{
+    padding: 25px 25px 25px;        /* padding in top,left-right,bottom */
+
+
+}
+
+.restaurant-list .list-item:hover{
+    border: 1px solid #d3d5df;
+    box-shadow: 0px 4px 7px 0px rgba(218 220 230 / 60%);
+    transform: scale(1.07);
+
+}
+
+.item-content .top-img{
+    background: #eef0f5;
+    width: 254px;
+    height: 160px;
+
+}
+
+.item-content{
+    position: relative;
+}
+
+.top-img .img{
+    opacity: 0.8;  /*opacity means image is opaque not transparent, opacity helps to transluent image/transparent image*/
+
+}
+
+/*now for promoted tag, so target to status*/
+.status{
+    position: absolute;
+    top: 0px;
+    background-color: rgb(58, 60, 65);
+    left: -8px;         /*for displaying status tag corner of the image*/
+    color: #fff;       /*giving text color*/
+    font-size: 13px;
+    font-weight: 500;
+    padding: 5px 9px 4px;
+    text-transform: uppercase;  /*text-transform is used for uppercase/lowercase etc*/
+    border-color: rgb(30, 32, 35) transparent;
+
+}
+
+/*for decorating promoted tag like 3d image from the corner*/
+.status::before{
+    position: absolute; /*because we want on top*/
+    bottom: -9px;
+    content: '';
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-color: inherit;
+    left: 0;
+    border-width: 9px 0 0 9px;
+}
+
+/*styling of place-name div*/
+.place-name-div{
+    margin-top: 14px;
+
+}
+
+.place-name-div .name{
+    font-size: 17px;
+    font-weight: 500;
+
+}
+
+.place-name-div .food-items{
+    color: #686b78;
+    font-size: 13px;
+    margin-top: 4px;
+    font-weight: 300;
+}
+
+/*info-div*/
+
+.info-div{  
+    display: flex;       /*i want all the items in one line*/
+    align-items: center;
+    margin-top: 18px;
+    font-size: 13px;
+    justify-content: space-between;
+    color: #535665;
+    font-weight: 300;
+}
+
+.info-div .rating{
+    background-color: #db7c38;
+    color: #fff;
+    padding: 0 5px;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+}
+
+.rating .icon-star{
+    font-size: 10px;
+    margin-right: 5px;
+    position: relative;
+    top: -1;
+}
+
+.rating-green{
+    background-color: green;
+    color: white;
+    padding: 0 5px;
+}
+
+.rating-orange{
+    background-color: orange;
+    color: white;
+    padding: 0 5px;
+}
+
+.offer-div{
+    border-top: 1px solid #e9e9eb;
+    padding-top: 14px;
+    margin-top: 14px;
+    color: #8a584b;
+    display: flex;
+    align-items: center;
+}
+
+.offer-div .icon-offer-filled{
+    font-size: 16px;
+    width: 20px;
+    height: 16px;
+    margin-right: 4px;
+}
+
+.offer-div .offer-text{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.2;
+}
+
+
+.place:hover .quick-view{
+   visibility: visible;             /*when pointer is on hover item quick view should be visible*/
+
+}
+
+.place .quick-view{
+    visibility: hidden;           /*when pointer is not on item quick view should not be visible*/
+    font-size: 13px;
+    border-top: 1px solid #e9e9eb;
+    padding-top: 14px;
+    margin-top: 14px;
+    text-align: center;
+}
+
+.quick-view .view-btn{
+    color: #5d8ed5;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+/*footer section*/
+.footer{
+    background-color: black;
+    margin-top: 99px;
+    color: white;
+}
+
+.company{
+    padding: 60px 58px 40px;
+    color: gray;
+}
+
+.imp-links{
+    padding-left: 50px;    
+}
+
+.extra-info a{
+    color: white;
+    text-decoration: none;
+}
+
+.extra-info li{
+    padding: 10px;
+}
+
+/*contact section inside footer*/
+
+.contact-info{
+    padding: 60px 58px 40px;
+    color: gray;
+}
+
+.contact-links{
+    padding-left: 50px;
+}
+
+.contact-links a{
+    color: white;
+    text-decoration: none;
+}
+
+.contact-links li{
+    padding: 10px;
+}
+
+
+/*legal- Section*/
+
+.legal{
+    padding: 60px 58px 40px;
+    color: gray;
+}
+.contact-links{
+    padding-left: 50px;
+}
+
+.legal-links a{
+    color: white;
+    text-decoration: none;
+}
+
+.legal-links a{
+    padding-left: 50px;
+}
+.legal-links li{
+    padding: 10px;
+}
+
+.footer-content{
+    display: flex;
+}
+
+/*flex-box*/
+.contact{
+    padding-left: 20px;
+}
+
+.legal-section{
+    padding-left: 70px;
+}
+
+/*play-store link*/
+.footer-content .download .app-store{
+    padding: 60px 200px 30px;
+}
+
+.googleplay{
+    padding: 60px 200px 30px;
+}
